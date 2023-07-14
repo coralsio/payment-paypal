@@ -1,69 +1,84 @@
+# Corals Payment Paypal
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
+- Extract the zip file and copy the PayPal folder under Corals\modules\Payment\PayPal.
 
-# :package_description
+- Go to Modules and enable PayPal plugin.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-[![Tests](https://github.com/:vendor_slug/:package_slug/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/:vendor_slug/:package_slug/actions/workflows/run-tests.yml)
-[![Total Downloads](https://img.shields.io/packagist/dt/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-<!--delete-->
----
-This package can be used as to scaffold a framework agnostic package. Follow these steps to get started:
+- Create a PayPal Application :
 
-1. Press the "Use template" button at the top of this repo to create a new repo with the contents of this skeleton
-2. Run "php ./configure.php" to run a script that will replace all placeholders throughout all the files
-3. Have fun creating your package.
-4. If you need help creating a package, consider picking up our <a href="https://laravelpackage.training">Laravel Package Training</a> video course.
----
-<!--/delete-->
-This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
+To create a Paypal App, go and visit: https://developer.paypal.com/developer/applications
 
-## Support us
+You need to be logged in to your PayPal account to be able to access their developer page. So first, login to your PayPal account and then follow the link above to get to their developer page. This should look similar to the one shown in the image below:
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/:package_name.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/:package_name)
+<p><img src="https://www.laraship.com/wp-content/uploads/2018/01/image001.png"></p>
+<p>&nbsp;</p>
 
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
+When you click on “Create a App”, A new window will pop up (see image below). Enter a App name and Sandbox developer account. Now Click on Create App.
 
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+<p><img src="https://www.laraship.com/wp-content/uploads/2018/01/image004.png"></p>
+<p>&nbsp;</p>
+
+By clicking on Create App, it will redirect you to the settings page for your new PayPal App. page will look like as mentioned in the image below:
+
+<p><img src="https://www.laraship.com/wp-content/uploads/2018/01/image006.png"></p>
+<p>&nbsp;</p>
+
+Now, Copy the Client ID and Client Secret in to the Paypal App settings within the Plugin settings page (See image below).
+
+<p><img src="https://www.laraship.com/wp-content/uploads/2018/01/image008.png"></p>
+<p>&nbsp;</p>
+
+<strong>Important</strong>: When you copy and paste all the needed IDs and Keys, make sure, that you don’t have any empty spaces, either at the beginning nor at the end of these entries. If you have any empty spaces, then the Application won’t work and will show an error message when you try to connect to the App
+
+<p><img src="https://www.laraship.com/wp-content/uploads/2018/01/image010.jpg"></p>
+<p>&nbsp;</p>
+
+
+- Under Payments => Payment Settings you can find a new Tab called PayPal
+Add your settings there
+
+ 
+
+ 
+
+- Webhooks is needed to trigger lLaraship application when payment has failed or subscription is cancelled also to create invoices : Under your Paypal Application create a Webhook:
+
+<p>&nbsp;</p>
+<p><img src="https://www.laraship.com/wp-content/uploads/2018/01/image011.png"></p>
+<p>&nbsp;</p>
+
+Your Webhook URL should be
+
+https://[you-domain.com]/webhooks/paypal_rest
+
+ 
+
+ 
+
+Subscribed Events are:
+
+ 
+
+Billing subscription cancelled
+
+Payment Sale Pending
+
+Payment Sales Completed
+
+Payment Sales DENIED’
+
+<p>&nbsp;</p> 
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require :vendor_slug/:package_slug
-```
-
-## Usage
-
-```php
-$skeleton = new VendorName\Skeleton();
-echo $skeleton->echoPhrase('Hello, VendorName!');
+composer require corals/payment-paypal
 ```
 
 ## Testing
 
 ```bash
-composer test
+vendor/bin/phpunit vendor/corals/payment-paypal/tests 
 ```
-
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](https://github.com/spatie/.github/blob/main/CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
-## Credits
-
-- [:author_name](https://github.com/:author_username)
-- [All Contributors](../../contributors)
-
-## License
-
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
