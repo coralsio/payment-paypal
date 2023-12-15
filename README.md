@@ -1,8 +1,7 @@
 # Corals Payment Paypal
 
-- Extract the zip file and copy the PayPal folder under Corals\modules\Payment\PayPal.
-
-- Go to Modules and enable PayPal plugin.
+* Laraship Laravel PayPal subscriptions Plugin is the first Laravel Plugin for handling recurring billing for PayPal. integrate Paypal seamlessly with Laraship Laravel Subscription Platform, You can enable it along with other subscription gateways like stripe,authorize.net, 2checkout, SecurionPay or even offline bank payments; which is already built in with Laraship Subscriptions platform or configure it as a standalone payment gateway.
+* If you are a seller and want to set up preapproved payment agreements for your end-users, such as recurring payments, subscriptions, automatic billing, and installment plans. you want to pay with PayPal every time you shop on a certain site, then Laraship Paypal subscription is your ultimate solution for this.
 
 - Create a PayPal Application :
 
